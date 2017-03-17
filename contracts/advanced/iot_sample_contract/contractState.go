@@ -95,7 +95,7 @@ func PUTContractStateToLedger(stub shim.ChaincodeStubInterface, state ContractSt
 	return nil
 }
 
-func initializeContractState(stub shim.ChaincodeStubInterfaceb, version string, nickname string) error {
+func initializeContractState(stub shim.ChaincodeStubInterface, version string, nickname string) error {
 	var state ContractState
 	var err error
 	if version != MYVERSION {
