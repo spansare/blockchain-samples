@@ -290,7 +290,7 @@ func (t *SimpleChaincode) createAsset(stub *shim.ChaincodeStub, args []string) (
 		make(map[string]interface{}))
 
 	// add transaction uuid and timestamp
-	stateOut[TXNUUID] = stub.UUID
+	stateOut[TXNUUID] = stub.GetTxID()
 	txnunixtime, err := stub.GetTxTimestamp()
 	if err != nil {
 		err = fmt.Errorf("Error getting transaction timestamp: %s", err)
@@ -474,7 +474,7 @@ func (t *SimpleChaincode) updateAsset(stub *shim.ChaincodeStub, args []string) (
 	log.Debugf("updateAsset assetID %s merged state: %s", assetID, stateOut)
 
 	// add transaction uuid and timestamp
-	stateOut[TXNUUID] = stub.UUID
+	stateOut[TXNUUID] = stub.GetTxID()
 	txnunixtime, err := stub.GetTxTimestamp()
 	if err != nil {
 		err = fmt.Errorf("Error getting transaction timestamp: %s", err)
@@ -775,7 +775,7 @@ OUTERDELETELOOP:
 	log.Debugf("updateAsset AssetID %s final state: %s", assetID, ledgerMap)
 
 	// add transaction uuid and timestamp
-	ledgerMap[TXNUUID] = stub.UUID
+	ledgerMap[TXNUUID] = stub.GetTxID()
 	txnunixtime, err := stub.GetTxTimestamp()
 	if err != nil {
 		err = fmt.Errorf("Error getting transaction timestamp: %s", err)
