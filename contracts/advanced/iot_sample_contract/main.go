@@ -1144,7 +1144,7 @@ func (t *SimpleChaincode) readAssetSamples(stub shim.ChaincodeStubInterface, arg
 // ************************************
 // readAssetSchemas
 // ************************************
-func (t *SimpleChaincode) readAssetSchemas(stub shim.ChaincodeStubInterfaceb, args []string) ([]byte, error) {
+func (t *SimpleChaincode) readAssetSchemas(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	return []byte(schemas), nil
 }
 
